@@ -172,7 +172,7 @@ export const Profile = () => {
                 className="mt-2"
                 size="lg"
                 >
-                    <a href="https://www.linkedin.com/in/levuxuanan/">Let's connect!</a>
+                    <a href="#contact">Let's connect!</a>
                 </Button>
         </div>
     </aside>

@@ -113,14 +113,14 @@ const projectsData: ProjectType[] = [
     imgSrc: '/images/reatal-real-estate-website-project.png',
     title: 'reatal-real-estate-website-project',
     tags: ['MERN Stack', 'Paypal'],
-    projectLink: 'https://github.com/levuxuananit/AWS-RAG-CHATBOT',
-    demoLink: 'https://levuxuananit.github.io/AWS-RAG-CHATBOT-WORKSHOP/',
+    projectLink: 'https://github.com/levuxuananit/mern-reatal-real-estate-website-project',
+    demoLink: 'https://github.com/levuxuananit/mern-reatal-real-estate-website-project',
   },
   {
     imgSrc: '/images/rag-chatbot.png',
     title: 'rag-chatbot',
     tags: ['AWS', 'GenAI'],
-    projectLink: 'https://github.com/levuxuananit/AWS-RAG-CHATBOT',
+    projectLink: 'https://github.com/levuxuananit/aws-rag-chatbot',
     demoLink: 'https://levuxuananit.github.io/AWS-RAG-CHATBOT-WORKSHOP/',
   }
 ];
