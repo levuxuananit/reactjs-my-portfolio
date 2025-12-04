@@ -1,5 +1,5 @@
 // Node modules 
-import { Profiler, StrictMode } from 'react'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 // Styles
 import './index.css'
@@ -8,7 +8,6 @@ import { App } from "@/App"
 import {Sidebar} from "@/components/ui/Sidebar"
 import { FloatingMenu } from '@/components/ui/FloatingMenu'
 import { Profile } from '@/components/ui/Profile'
-import { ParticleBackground } from '@/components/ui/ParticleBackground'
 
 const rootElement = document.getElementById('root')
 if (!rootElement) {
@@ -17,7 +16,6 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <ParticleBackground />
     <div className='min-h-screen lg:flex lg:justify-center lg:items-start lg:gap-10 relative z-10'>
     <Sidebar/>
     <FloatingMenu/>
