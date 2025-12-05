@@ -121,7 +121,7 @@ const projectsData: ProjectType[] = [
     title: 'rag-chatbot',
     tags: ['AWS', 'GenAI'],
     projectLink: 'https://github.com/levuxuananit/aws-rag-chatbot',
-    demoLink: 'https://levuxuananit.github.io/AWS-RAG-CHATBOT-WORKSHOP/',
+    demoLink: 'https://levuxuananit.github.io/aws-personalized-rag-chatbot-workshop/',
   }
 ];
 

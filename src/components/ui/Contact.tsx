@@ -1,6 +1,8 @@
 // Node modules
 import { useForm } from "react-hook-form"
 import { motion } from "motion/react"
+import emailjs from '@emailjs/browser'
+import { useState } from "react"
 
 // Custom modules
 import { fadeUp } from "@/lib/animations"
@@ -27,6 +29,9 @@ type ContactFormValues = {
 }
 
 export const Contact = () => {
+    const [isLoading, setIsLoading] = useState(false)
+    const [isSuccess, setIsSuccess] = useState(false)
+    
     const form = useForm<ContactFormValues>({
         defaultValues: {
             name: "",
@@ -37,8 +42,38 @@ export const Contact = () => {
         }
     })
 
-    const onSubmit = (values: ContactFormValues) => {
-        console.log(values)
+    const onSubmit = async (values: ContactFormValues) => {
+        setIsLoading(true)
+        
+        try {
+            // Cấu hình EmailJS - bạn cần thay thế các giá trị này
+            const templateParams = {
+                from_name: values.name,
+                from_email: values.email,
+                company: values.company,
+                phone: values.phone,
+                message: values.message,
+                to_email: 'levuxuanan.it@gmail.com'
+            }
+
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                templateParams,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            )
+
+            setIsSuccess(true)
+            form.reset()
+            
+            // Reset success message sau 3 giây
+            setTimeout(() => setIsSuccess(false), 3000)
+        } catch (error) {
+            console.error('Error sending email:', error)
+            alert('An error occurred while sending the message. Please try again!')
+        } finally {
+            setIsLoading(false)
+        }
     }   
 
     return (
@@ -148,9 +183,16 @@ export const Contact = () => {
                     <Button
                     type="submit"
                     size="lg"
+                    disabled={isLoading}
                     className="mt-4 items-center w-full ">
-                        <a href="https://www.linkedin.com/in/levuxuanan/">Send message</a>
+                        {isLoading ? 'Sending...' : isSuccess ? 'Sent successfully!' : 'Send message'}
                     </Button>
+                    
+                    {isSuccess && (
+                        <p className="text-green-600 text-center mt-2">
+                            Thank you! Message sent successfully!
+                        </p>
+                    )}
             </form>
            </Form>
         </motion.section>
