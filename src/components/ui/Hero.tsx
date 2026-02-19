@@ -29,7 +29,8 @@ export const Hero = () => {
                 variants={fadeUp}
                 className="text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mt-2 max-w-3xl md:leading-16">
                     {/* text-transparent bg-clip-text bg-gradient-to-r from-[#0026ff] to-[#bb00ff] */}
-                    Hi! I'm Xuan An <br></br> <span className="text-3xl text-primary">A passionate Software & Cloud Engineer</span>
+                    Hi! I'm Xuan An <br></br>
+                    <span className="text-3xl text-primary">Backend Developer | Passionate about AWS</span>
                 </motion.h1>
 
                 <motion.div

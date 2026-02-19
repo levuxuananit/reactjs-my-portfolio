@@ -167,8 +167,8 @@ const tools: ToolsType[] = [
     imgSrc: '/images/tools/react.svg',
   },
   {
-    label: 'Express.js',
-    imgSrc: '/images/tools/expressjs.svg',
+    label: 'Java',
+    imgSrc: '/images/tools/java.svg',
   },
   {
     label: 'Node.js',
@@ -191,8 +191,8 @@ const tools: ToolsType[] = [
     imgSrc: '/images/tools/terraform.svg',
   },
   {
-    label: 'Kubernetes',
-    imgSrc: '/images/tools/kubernetes.svg',
+    label: 'Springboot',
+    imgSrc: '/images/tools/springboot.svg',
   },
   {
     label: 'Jenkins',
