@@ -1,6 +1,6 @@
 // Node modules
 import { motion } from "motion/react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // Custom modules
 import { staggerContainer } from "@/lib/animations"
@@ -18,7 +18,18 @@ import { projectsData } from "@/constants/index"
 
 export const Projects = () => {
     const [currentPage, setCurrentPage] = useState(0)
-    const projectsPerPage = 4
+    const [projectsPerPage, setProjectsPerPage] = useState(() => window.innerWidth < 640 ? 1 : 4)
+
+    useEffect(() => {
+        const update = () => {
+            const perPage = window.innerWidth < 640 ? 1 : 4
+            setProjectsPerPage(perPage)
+            setCurrentPage(0)
+        }
+        window.addEventListener('resize', update)
+        return () => window.removeEventListener('resize', update)
+    }, [])
+
     const totalPages = Math.ceil(projectsData.length / projectsPerPage)
     
     const currentProjects = projectsData.slice(
@@ -42,7 +53,7 @@ export const Projects = () => {
 
                 <motion.div
                 key={currentPage}
-                className="grid md:grid-cols-2 gap-10 mt-10"
+                className="flex flex-col gap-6 mt-10"
                 initial='hidden'
                 animate='visible'
                 variants={staggerContainer(0.1)}>
@@ -53,6 +64,7 @@ export const Projects = () => {
                         projectLink={project.projectLink}
                         tags={project.tags}
                         title={project.title}
+                        desc={project.desc}
                         demoLink={project.demoLink}
                         />
                     ))}

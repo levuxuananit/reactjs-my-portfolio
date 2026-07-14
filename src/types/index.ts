@@ -9,6 +9,7 @@ export interface LinksType {
 export interface ProjectType {
   imgSrc: string;
   title: string;
+  desc: string;
   tags: string[];
   projectLink: string;
   demoLink: string;
